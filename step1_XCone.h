@@ -384,6 +384,8 @@ public :
    vector<double>  *theJetVtxMass_JetSubCalc;
    vector<double>  *theJetVtxNtracks_JetSubCalc;
    vector<double>  *tau_njettiness_XConeCalc;
+   vector<double>  *tau_njettiness_diff_XConeCalc;
+   vector<double>  *tau_njettiness_div_XConeCalc;
    vector<double>  *theXConeJetEnergy_XConeCalc;
    vector<double>  *theXConeJetEta_XConeCalc;
    vector<double>  *theXConeJetPhi_XConeCalc;
@@ -749,6 +751,8 @@ public :
    TBranch        *b_theJetVtxMass_JetSubCalc;   //!
    TBranch        *b_theJetVtxNtracks_JetSubCalc;   //!
    TBranch        *b_tau_njettiness_XConeCalc;   //!
+   TBranch        *b_tau_njettiness_diff_XConeCalc;   //!
+   TBranch        *b_tau_njettiness_div_XConeCalc;   //!
    TBranch        *b_theXConeJetEnergy_XConeCalc;   //!
    TBranch        *b_theXConeJetEta_XConeCalc;   //!
    TBranch        *b_theXConeJetPhi_XConeCalc;   //!
@@ -1130,6 +1134,8 @@ void step1_XCone::Init(TTree *tree)
    theJetVtxMass_JetSubCalc = 0;
    theJetVtxNtracks_JetSubCalc = 0;
    tau_njettiness_XConeCalc = 0;
+   tau_njettiness_diff_XConeCalc = 0;
+   tau_njettiness_div_XConeCalc = 0;
    theXConeJetEnergy_XConeCalc = 0;
    theXConeJetEta_XConeCalc = 0;
    theXConeJetPhi_XConeCalc = 0;
@@ -1499,6 +1505,8 @@ void step1_XCone::Init(TTree *tree)
    inputtree->SetBranchAddress("theJetVtxMass_JetSubCalc", &theJetVtxMass_JetSubCalc, &b_theJetVtxMass_JetSubCalc);
    inputtree->SetBranchAddress("theJetVtxNtracks_JetSubCalc", &theJetVtxNtracks_JetSubCalc, &b_theJetVtxNtracks_JetSubCalc);
    inputtree->SetBranchAddress("tau_njettiness_XConeCalc", &tau_njettiness_XConeCalc, &b_tau_njettiness_XConeCalc);
+   inputtree->SetBranchAddress("tau_njettiness_diff_XConeCalc", &tau_njettiness_diff_XConeCalc, &b_tau_njettiness_diff_XConeCalc);
+   inputtree->SetBranchAddress("tau_njettiness_div_XConeCalc", &tau_njettiness_div_XConeCalc, &b_tau_njettiness_div_XConeCalc);
    inputtree->SetBranchAddress("theXConeJetEnergy_XConeCalc", &theXConeJetEnergy_XConeCalc, &b_theXConeJetEnergy_XConeCalc);
    inputtree->SetBranchAddress("theXConeJetEta_XConeCalc", &theXConeJetEta_XConeCalc, &b_theXConeJetEta_XConeCalc);
    inputtree->SetBranchAddress("theXConeJetPhi_XConeCalc", &theXConeJetPhi_XConeCalc, &b_theXConeJetPhi_XConeCalc);
