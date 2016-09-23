@@ -23,7 +23,11 @@ public :
    TTree          *inputtree;   //!pointer to the analyzed TTree or TChain
    TFile          *inputFile, *outputFile;
    Int_t           fCurrent; //!current Tree number in a TChain
-
+   
+   Bool_t			isTT;
+   Bool_t			isTpTp;
+   std::string			outFileName_; 
+   
 // Fixed size dimensions of array or collections stored in the TTree if any.
 
    // Declaration of leaf types
@@ -775,9 +779,13 @@ step1_XCone::step1_XCone(TTree *tree,TString inputFileName, TString outputFileNa
 // if parameter tree is not specified (or zero), connect the file
 // used to generate this class and read the Tree.
 
+  isTpTp  = inputFileName.Contains("Tprime");
+  isTT	  = inputFileName.Contains("TT");
+  outFileName_ = outputFileName;
+
   std::cout<<"Opening file: "<<inputFileName<<std::endl;
   inputFile=TFile::Open(inputFileName);  
-  outputFile=new TFile(outputFileName,"RECREATE");   
+  outputFile=new TFile(outputFileName,"RECREATE");     
 
    if (tree == 0) {
       TFile *f = (TFile*)gROOT->GetListOfFiles()->FindObject(inputFileName);
